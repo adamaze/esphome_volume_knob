@@ -19,6 +19,11 @@ Double click will call `media_player.media_next_track`
 Long press will call a script to start playing a specific Spotify playlist.
 
 ## Hardware
-Rotary encoder with push button  
-d1 mini  
+[Rotary encoder with push button](https://www.amazon.com/dp/B07DM2YMT4/ref=cm_sw_r_other_apa_i_p1QSEb0TD399C) box of 5 ~$2   each  
+[d1 mini](https://www.amazon.com/dp/B076F52NQD/ref=cm_sw_r_other_apa_i_nZQSEb5A4BS3Y) bag of 5 ~$3.5 each  
 Access to 3D printer (or of course, smush it into whatever box you have laying around :)  
+
+
+## Setup
+1. [Home Assistant](https://www.home-assistant.io/hassio/installation/)  
+2. [ESPHome](https://esphome.io/guides/getting_started_hassio.html)  
