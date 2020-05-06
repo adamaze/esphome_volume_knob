@@ -42,6 +42,7 @@ binary_sensor:
             service: media_player.media_next_track
             data:
               entity_id: media_player.spotify
+        - logger.log: "double click"
     - timing:
       - ON for .5s to 2s
       - OFF for at least 0.1s
@@ -55,6 +56,7 @@ binary_sensor:
             service: media_player.media_play_pause
             data:
               entity_id: media_player.spotify
+        - logger.log: "single click"
 
 sensor:
   - platform: rotary_encoder
