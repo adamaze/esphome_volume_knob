@@ -40,7 +40,7 @@ notice that some of the parts of the knob were bent so that it would fit flush w
 ![knob_bending](https://github.com/adamaze/esphome_volume_knob/blob/master/knob_bending.jpg)
 
 ## Case
-I went through many iterations, and I'm brand new to 3D printing, so dont expect much from the case, but I'm pretty happy with it
+I went through many iterations, and I'm brand new to 3D printing, so dont expect much from the case, but I'm pretty happy with it. Some of my spare usb cables are weirdly large, which is why the opening for the usb port is so large.
 ![case_top](https://github.com/adamaze/esphome_volume_knob/blob/master/case_top.jpg)
 ![case_bottom](https://github.com/adamaze/esphome_volume_knob/blob/master/case_bottom.jpg)
 STL files can be found here:  
