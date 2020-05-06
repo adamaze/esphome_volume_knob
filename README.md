@@ -1,6 +1,6 @@
 # Still a work in progress...
 # Physical Volume Control for Home Assistant
-![knob](https://github.com/adamaze/esphome_volume_knob/blob/master/knob.jpg)
+![knob](https://github.com/adamaze/esphome_volume_knob/blob/master/images/knob.jpg)
 
 I wanted to start this project for a long time, but I'm the type of person that really likes to follow a guide when im doing something in new territory, and as I never found one... I kept putting it off. I eventually came across a guide about volume control using straight up arduino and mqtt, and then later found one about making a light dimmer knob using a potentiometer, but none of the ones I ever found met my needs. Just a note: Limiting the knob to only register 0-100 and feeding the value directly to media_player.volume_set seems like a good idea at first, but then you realize that it will get out of sync as soon as you change the volume through HA, so that option was out.
 
@@ -34,15 +34,15 @@ Access to 3D printer (or of course, smush it into whatever box you have laying a
   * use example [knob.yaml](https://github.com/adamaze/esphome_volume_knob/blob/master/knob.yaml) and replace media_player.spotify with your media_player for play/pause control, and media_player.speakers with your media_player for volume control  
 
 ## Wiring  
-![wiring](https://github.com/adamaze/esphome_volume_knob/blob/master/wiring.jpg)
+![wiring](https://github.com/adamaze/esphome_volume_knob/blob/master/images/wiring.jpg)
 
 notice that some of the parts of the knob were bent so that it would fit flush with the case, and make room underneath. Knob on right is final.  
-![knob_bending](https://github.com/adamaze/esphome_volume_knob/blob/master/knob_bending.jpg)
+![knob_bending](https://github.com/adamaze/esphome_volume_knob/blob/master/images/knob_bending.jpg)
 
 ## Case
 I went through many iterations, and I'm brand new to 3D printing, so dont expect much from the case, but I'm pretty happy with it. Some of my spare usb cables are weirdly large, which is why the opening for the usb port is so large.
-![case_top](https://github.com/adamaze/esphome_volume_knob/blob/master/case_top.jpg)
-![case_bottom](https://github.com/adamaze/esphome_volume_knob/blob/master/case_bottom.jpg)
+![case_top](https://github.com/adamaze/esphome_volume_knob/blob/master/images/case_top.jpg)
+![case_bottom](https://github.com/adamaze/esphome_volume_knob/blob/master/images/case_bottom.jpg)
 STL files can be found here:  
 [case_top.stl](https://github.com/adamaze/esphome_volume_knob/blob/master/case_top.stl)  
 [case_bottom.stl](https://github.com/adamaze/esphome_volume_knob/blob/master/case_bottom.stl)  
