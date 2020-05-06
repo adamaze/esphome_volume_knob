@@ -1,0 +1,97 @@
+esphome:
+  name: knob
+  platform: ESP8266
+  board: d1_mini
+
+wifi:
+  ssid: !secret ssid
+  password: !secret wifi_pass
+  domain: !secret domain
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Knob Fallback Hotspot"
+    password: !secret fallback_pass
+
+captive_portal:
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  password: !secret api_pass
+
+ota:
+  password: !secret ota_pass
+    
+    
+binary_sensor:
+  - platform: gpio
+    pin:
+      number: D2
+      mode: INPUT_PULLUP
+      inverted: True
+    name: "button"
+    on_multi_click:
+    - timing:
+      - ON for at most 1s
+      - OFF for at most 1s
+      - ON for at most 1s
+      - OFF for at least 0.2s
+      then:
+        - homeassistant.service:
+            service: media_player.media_next_track
+            data:
+              entity_id: media_player.spotify
+    - timing:
+      - ON for .5s to 2s
+      - OFF for at least 0.1s
+      then:
+        - logger.log: "long press"
+    - timing:
+      - ON for at most .49s
+      - OFF for at least 0.25s
+      then:
+        - homeassistant.service:
+            service: media_player.media_play_pause
+            data:
+              entity_id: media_player.spotify
+
+sensor:
+  - platform: rotary_encoder
+    name: "knob"
+    id: knob
+    pin_a: D4
+    pin_b: D3
+    min_value: -3
+    max_value: 3
+    on_value_range:
+      - above: 2
+        then:
+          - script.execute: volume_up
+      - below: -2
+        then:
+          - script.execute: volume_down
+              
+script:
+  - id: volume_up
+    then:
+      - homeassistant.service:
+          service: media_player.volume_up
+          data:
+            entity_id: media_player.speakers
+      - logger.log: "vol up trigger"
+      - sensor.rotary_encoder.set_value:
+          id: knob
+          value: 0
+  - id: volume_down
+    then:
+      - homeassistant.service:
+          service: media_player.volume_down
+          data:
+            entity_id: media_player.speakers
+      - logger.log: "vol down trigger"
+      - sensor.rotary_encoder.set_value:
+          id: knob
+          value: 0
