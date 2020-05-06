@@ -32,7 +32,6 @@ binary_sensor:
       number: D2
       mode: INPUT_PULLUP
       inverted: True
-    name: "button"
     on_multi_click:
     - timing:
       - ON for at most 1s
@@ -60,7 +59,6 @@ binary_sensor:
 
 sensor:
   - platform: rotary_encoder
-    name: "knob"
     id: knob
     pin_a: D4
     pin_b: D3
