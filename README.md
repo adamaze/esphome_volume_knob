@@ -30,3 +30,7 @@ Access to 3D printer (or of course, smush it into whatever box you have laying a
 2. [ESPHome](https://esphome.io/guides/getting_started_hassio.html)  
   * Make sure to use the "Secrets Editor" found under the three dots at the top right hand corner of the ESPHome dashboard to set up your secrets - see example [secrets.yaml](https://github.com/adamaze/esphome_volume_knob/blob/master/secrets.yaml)  
   * use example [knob.yaml](https://github.com/adamaze/esphome_volume_knob/blob/master/knob.yaml) and replace media_player.spotify with your media_player for play/pause control, and media_player.speakers with your media_player for volume control  
+
+## Known Issues
+1. If you spin the knob super fast, it may get locked at the value at either end and not update again until you spin the other way.  
+2. You have to spin the knob two clicks for it to update.
