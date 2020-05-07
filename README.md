@@ -5,6 +5,8 @@ I wanted to start this project for a long time, but I'm the type of person that 
 
 There are likely better ways to do everything that I did, but I'm happy that I actually got it all to work
 
+I currently have 4 of these around the house controlling volume for different sets of speakers, and they have been working pretty well!
+
 ## Goals
 Here were the goals I gave myself for a "complete" project:  
 * Simple to set up
