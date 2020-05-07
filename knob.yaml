@@ -1,5 +1,5 @@
 esphome:
-  name: knob
+  name: knob_kitchen
   platform: ESP8266
   board: d1_mini
 
@@ -9,7 +9,7 @@ wifi:
 
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
-    ssid: "Knob Fallback Hotspot"
+    ssid: "knob_kitchen Fallback Hotspot"
     password: !secret fallback_pass
 
 captive_portal:
@@ -27,7 +27,7 @@ ota:
     
 binary_sensor:
   - platform: gpio
-    id: button
+    id: button_kitchen
     pin:
       number: D2
       mode: INPUT_PULLUP
@@ -54,7 +54,7 @@ binary_sensor:
               entity_id: media_player.spotify
               media_content_id: spotify:playlist:7qFH2xh3ZiewF1WDgXQbfC
               media_content_type: playlist
-        - logger.log: "long press"
+        - logger.log: "long press - play spotify playlist"
     - timing:
       - ON for at most .49s
       - OFF for at least 0.25s
@@ -63,11 +63,11 @@ binary_sensor:
             service: media_player.media_play_pause
             data:
               entity_id: media_player.spotify
-        - logger.log: "single click"
+        - logger.log: "single click - play/pause"
 
 sensor:
   - platform: rotary_encoder
-    id: knob
+    id: knob_kitchen
     pin_a: D4
     pin_b: D3
     min_value: -3
@@ -86,18 +86,18 @@ script:
       - homeassistant.service:
           service: media_player.volume_up
           data:
-            entity_id: media_player.speakers
+            entity_id: media_player.kitchen_speakers
       - logger.log: "vol up trigger"
       - sensor.rotary_encoder.set_value:
-          id: knob
+          id: knob_kitchen
           value: 0
   - id: volume_down
     then:
       - homeassistant.service:
           service: media_player.volume_down
           data:
-            entity_id: media_player.speakers
+            entity_id: media_player.kitchen_speakers
       - logger.log: "vol down trigger"
       - sensor.rotary_encoder.set_value:
-          id: knob
+          id: knob_kitchen
           value: 0
