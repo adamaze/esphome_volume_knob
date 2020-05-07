@@ -45,8 +45,8 @@ I printed two of these out of Prusament Galaxy Black PLA, and one final one from
 ![case_top](https://github.com/adamaze/esphome_volume_knob/blob/master/images/case_top.jpg)
 ![case_bottom](https://github.com/adamaze/esphome_volume_knob/blob/master/images/case_bottom.jpg)
 STL files can be found here:  
-[case_top.stl](https://github.com/adamaze/esphome_volume_knob/blob/master/case_top.stl)  
-[case_bottom.stl](https://github.com/adamaze/esphome_volume_knob/blob/master/case_bottom.stl)  
+[knob_case_top.stl](https://github.com/adamaze/esphome_volume_knob/blob/master/knob_case_top.stl)  
+[knob_case_bottom.stl](https://github.com/adamaze/esphome_volume_knob/blob/master/knob_case_bottom.stl)  
 
 ## Known Issues
 1. If you spin the knob super fast, it may get locked at the value at either end and not update again until you spin the other way.  
