@@ -31,7 +31,7 @@ Access to 3D printer (or of course, smush it into whatever box you have laying a
 1. [Home Assistant](https://www.home-assistant.io/hassio/installation/)  
 2. [ESPHome](https://esphome.io/guides/getting_started_hassio.html)  
   * Make sure to use the "Secrets Editor" found under the three dots at the top right hand corner of the ESPHome dashboard to set up your secrets - see example [secrets.yaml](https://github.com/adamaze/esphome_volume_knob/blob/master/secrets.yaml)  
-  * use example [knob.yaml](https://github.com/adamaze/esphome_volume_knob/blob/master/knob.yaml) and replace `media_player.spotify` with your media_player for play/pause control, and `media_player.speakers` with your media_player for volume control  
+  * use example [knob.yaml](https://github.com/adamaze/esphome_volume_knob/blob/master/knob.yaml) and replace `media_player.spotify` with your media_player for play/pause control, `media_player.kitchen_speakers` with your media_player for volume control, and `kitchen` with the name of the room the knob will be in.
 
 ## Wiring  
 ![wiring](https://github.com/adamaze/esphome_volume_knob/blob/master/images/wiring.jpg)
