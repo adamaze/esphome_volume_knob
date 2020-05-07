@@ -44,7 +44,7 @@ I went through many iterations, and I'm brand new to 3D printing, so dont expect
 I printed two of these out of Prusament Galaxy Black PLA, and one final one from PETG. I suppose it may depend on the printer, but the tolerances were such that the top and bottom just kinda snapped together tightly, so there was no need for a close/lock mechanism 
 ![case_top](https://github.com/adamaze/esphome_volume_knob/blob/master/images/case_top.jpg)
 ![case_bottom](https://github.com/adamaze/esphome_volume_knob/blob/master/images/case_bottom.jpg)
-STL files can be found here:  
+View the STL files right here inside github!:  
 [knob_case_top.stl](https://github.com/adamaze/esphome_volume_knob/blob/master/knob_case_top.stl)  
 [knob_case_bottom.stl](https://github.com/adamaze/esphome_volume_knob/blob/master/knob_case_bottom.stl)  
 
