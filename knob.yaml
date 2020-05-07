@@ -43,7 +43,7 @@ binary_sensor:
             service: media_player.media_next_track
             data:
               entity_id: media_player.spotify
-        - logger.log: "double click"
+        - logger.log: "double click - next track"
     - timing:
       - ON for .5s to 2s
       - OFF for at least 0.1s
