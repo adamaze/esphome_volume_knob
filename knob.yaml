@@ -27,6 +27,7 @@ ota:
     
 binary_sensor:
   - platform: gpio
+    id: button
     pin:
       number: D2
       mode: INPUT_PULLUP
