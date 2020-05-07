@@ -1,4 +1,3 @@
-# Still a work in progress...
 # Physical Volume Control for Home Assistant
 ![knob](https://github.com/adamaze/esphome_volume_knob/blob/master/images/knob.jpg)
 
