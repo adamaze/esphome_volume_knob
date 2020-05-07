@@ -48,12 +48,7 @@ binary_sensor:
       - ON for .5s to 2s
       - OFF for at least 0.1s
       then:
-        - homeassistant.service:
-            service: media_player.play_media
-            data:
-              entity_id: media_player.spotify
-              media_content_id: spotify:playlist:7qFH2xh3ZiewF1WDgXQbfC
-              media_content_type: playlist
+        - script.execute: start_playlist_shuffle
         - logger.log: "long press - play spotify playlist"
     - timing:
       - ON for at most .49s
@@ -101,3 +96,20 @@ script:
       - sensor.rotary_encoder.set_value:
           id: knob_kitchen
           value: 0
+  - id: start_playlist_shuffle
+    then:
+      - homeassistant.service:
+          service: media_player.play_media
+          data:
+            entity_id: media_player.spotify
+            media_content_id: spotify:playlist:7qFH2xh3ZiewF1WDgXQbfC
+            media_content_type: playlist
+      - homeassistant.service:
+          service: media_player.shuffle_set
+          data:
+            entity_id: media_player.spotify
+            shuffle: "true"
+      - homeassistant.service:
+          service: media_player.media_next_track
+          data:
+            entity_id: media_player.spotify
