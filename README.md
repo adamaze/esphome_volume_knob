@@ -5,7 +5,7 @@ I wanted to start this project for a long time, but I'm the type of person that 
 
 There are likely better ways to do everything that I did, but I'm happy that I actually got it all to work
 
-I currently have 4 of these around the house controlling volume for different sets of speakers, and they have been working pretty well!
+I currently have 5 of these around the house controlling volume for different sets of speakers, and they have been working pretty well!
 
 ## Goals
 Here were the goals I gave myself for a "complete" project:  
@@ -42,7 +42,8 @@ Notice that some of the parts of the knob had to be bent so that it would fit fl
 
 ## Case
 I went through many iterations, and I'm brand new to 3D printing, so dont expect much from the case, but I'm pretty happy with it. Some of my spare usb cables are weirdly large, which is why the opening for the usb port is so large.  
-I printed two of these out of Prusament Galaxy Black PLA, and one final one from PETG. I suppose it may depend on the printer, but the tolerances were such that the top and bottom just kinda snapped together tightly, so there was no need for a close/lock mechanism 
+I suppose it may depend on the printer, but the tolerances were such that the top and bottom just kinda snapped together tightly, so there was no need for a close/lock mechanism. These base was printed using supports for the USB port section, although it likely wasnt needed, as I realized later that the gap is about the same width as the window on Benchy, and that prints just fine with no supports :) I printed four of these out of Prusament Galaxy Black PLA, and the original is orange Prusament PETG.
+I ended up sticking each one in place with a command strip cut to size for a nice steady solid twist feel.
 ![case_top](https://github.com/adamaze/esphome_volume_knob/blob/master/images/case_top.jpg)
 ![case_bottom](https://github.com/adamaze/esphome_volume_knob/blob/master/images/case_bottom.jpg)
 View the STL files right here inside github!:  
