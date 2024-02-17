@@ -65,13 +65,18 @@ sensor:
     id: knob_kitchen
     pin_a: D4
     pin_b: D3
-    min_value: -3
-    max_value: 3
+    min_value: -2
+    max_value: 2
+    resolution: 1
+    filters:
+      - or:
+        - debounce: 0.1s
+        - delta: 10
     on_value_range:
-      - above: 2
+      - above: 1
         then:
           - script.execute: volume_up
-      - below: -2
+      - below: -1
         then:
           - script.execute: volume_down
               
