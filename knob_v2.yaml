@@ -1,0 +1,113 @@
+substitutions:
+  knob_name: my_knob
+  speakers: kitchen
+
+esphome:
+  name: esphome_volume_knob
+
+esp8266:
+    board: d1_mini
+
+wifi:
+  ssid: !secret ssid
+  password: !secret wifi_pass
+  domain: !secret domain
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "knob-${knob_name} Fallback Hotspot"
+    password: !secret fallback_pass
+
+captive_portal:
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: !secret encryption_key
+
+ota:
+ - platform: esphome
+   password: !secret ota_pass
+
+
+binary_sensor:
+  - platform: gpio
+    id: button_${knob_name}
+    pin:
+      number: D2
+      mode: INPUT_PULLUP
+      inverted: True
+    on_multi_click:
+    - timing:
+      - ON for at most 1s
+      - OFF for at most 1s
+      - ON for at most 1s
+      - OFF for at least 0.2s
+      then:
+        - homeassistant.service:
+            service: input_boolean.turn_on
+            data:
+              entity_id: input_boolean.button_${knob_name}_double
+        - logger.log: "double click"
+    - timing:
+      - ON for .5s to 2s
+      - OFF for at least 0.1s
+      then:
+        - homeassistant.service:
+            service: input_boolean.turn_on
+            data:
+              entity_id: input_boolean.button_${knob_name}_long
+        - logger.log: "long press"
+    - timing:
+      - ON for at most .49s
+      - OFF for at least 0.25s
+      then:
+        - homeassistant.service:
+            service: input_boolean.turn_on
+            data:
+              entity_id: input_boolean.button_${knob_name}_single
+        - logger.log: "single click"
+
+sensor:
+  - platform: rotary_encoder
+    id: knob_${knob_name}
+    name: knob_${knob_name}
+    pin_a: D4
+    pin_b: D3
+    resolution: 2
+    on_clockwise:
+      - script.execute:
+          id: control_volume
+          increase_volume: true
+    on_anticlockwise:
+      - script.execute:
+          id: control_volume
+          increase_volume: false
+
+script:
+  - id: control_volume
+    mode: restart
+    parameters:
+      increase_volume: bool  # True: Increase volume / False: Decrease volume.
+    then:
+      - delay: 16ms
+      - if:
+          condition:
+            lambda: return increase_volume;
+          then:
+            - homeassistant.service:
+                service: media_player.volume_up
+                data:
+                  entity_id: media_player.${speakers}_speakers
+          else:
+            - homeassistant.service:
+                service: media_player.volume_down
+                data:
+                  entity_id: media_player.${speakers}_speakers
+      - delay: 1s
+      - sensor.rotary_encoder.set_value:
+          id: knob_${knob_name}
+          value: 0
